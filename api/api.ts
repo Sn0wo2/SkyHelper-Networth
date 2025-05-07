@@ -23,19 +23,17 @@ app.post('/networth',
     validateContentType,
     async (req: Request, res: Response, next: NextFunction) => {
         try {
+            const cosmetic: boolean = req.query.noncosmetic === 'false';
+
+            const msg = "Getting NetWorth";
+            console.log(cosmetic ? msg + "(Non Cosmetic)" : msg);
+
             const networthManager = new ProfileNetworthCalculator(req.body.profile, req.body.museum, req.body.banking || 0);
+            const settings = { includeItemData: true };
+            const networth = cosmetic
+                ? await networthManager.getNetworth(settings)
+                : await networthManager.getNonCosmeticNetworth(settings);
 
-            let networth: null;
-
-            const cosmetic = req.query.cosmetic
-
-            console.log(cosmetic ? "Getting networth" : "Getting networth with cosmetic......")
-
-            if (cosmetic) {
-                networth = await networthManager.getNetworth({ includeItemData: true });
-            } else {
-                networth = await networthManager.getNonCosmeticNetworth({includeItemData: true})
-            }
             res.status(200).json({
                 message: 'success',
                 data: {
