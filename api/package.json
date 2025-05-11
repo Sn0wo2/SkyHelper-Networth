@@ -4,13 +4,18 @@
     "description": "",
     "main": "api.ts",
     "scripts": {
-        "dev": "ts-node api.ts"
+        "lint": "npx eslint .",
+        "prettier": "npx prettier --check .",
+        "prettier:fix": "npx prettier --write .",
+        "run": "ts-node api.ts"
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Altpapier/SkyHelper-Networth"
+        "url": "https://github.com/Sn0wo2/SkyHelper-Networth"
     },
-    "private": true,
+    "bugs": {
+        "url": "https://github.com/Sn0wo2/SkyHelper-Networth/issues"
+    },
     "devDependencies": {
         "ts-node": "^10.9.2",
         "typescript": "^5.8.3"
