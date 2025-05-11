@@ -19,32 +19,27 @@ const validateContentType = (req: Request, res: Response, next: NextFunction) =>
     next();
 };
 
-app.post('/networth',
-    validateContentType,
-    async (req: Request, res: Response, next: NextFunction) => {
-        try {
-            const cosmetic: boolean = req.query.noncosmetic === 'false';
+app.post('/networth', validateContentType, async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const cosmetic: boolean = req.query.noncosmetic === 'false';
 
-            const msg = "Getting NetWorth";
-            console.log(cosmetic ? msg + "(Non Cosmetic)" : msg);
+        const msg = 'Getting NetWorth';
+        console.log(cosmetic ? msg + '(Non Cosmetic)' : msg);
 
-            const networthManager = new ProfileNetworthCalculator(req.body.profile, req.body.museum, req.body.banking || 0);
-            const settings = { includeItemData: true };
-            const networth = cosmetic
-                ? await networthManager.getNetworth(settings)
-                : await networthManager.getNonCosmeticNetworth(settings);
+        const networthManager = new ProfileNetworthCalculator(req.body.profile, req.body.museum, req.body.banking || 0);
+        const settings = { includeItemData: true };
+        const networth = cosmetic ? await networthManager.getNetworth(settings) : await networthManager.getNonCosmeticNetworth(settings);
 
-            res.status(200).json({
-                message: 'success',
-                data: {
-                    networth,
-                }
-            });
-        } catch (error) {
-            next(error);
-        }
+        res.status(200).json({
+            message: 'success',
+            data: {
+                networth,
+            },
+        });
+    } catch (error) {
+        next(error);
     }
-);
+});
 
 app.use((req: Request, res: Response) => {
     res.status(404).json({
