@@ -2,12 +2,12 @@
     "name": "skyhelper-api",
     "version": "1.0.0",
     "description": "",
-    "main": "api.ts",
+    "main": "index.ts",
     "scripts": {
         "lint": "npx eslint .",
         "prettier": "npx prettier --check .",
         "prettier:fix": "npx prettier --write .",
-        "run": "ts-node api.ts"
+        "run": "ts-node index.ts"
     },
     "repository": {
         "type": "git",
@@ -16,6 +16,8 @@
     "bugs": {
         "url": "https://github.com/Sn0wo2/SkyHelper-Networth/issues"
     },
+    "author": "Sn0wo2",
+    "license": "MIT",
     "devDependencies": {
         "ts-node": "^10.9.2",
         "typescript": "^5.8.3"
