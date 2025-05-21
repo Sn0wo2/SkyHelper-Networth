@@ -4,6 +4,8 @@ const PetCandyHandler = require('./handlers/PetCandy');
 const PetItemHandler = require('./handlers/PetItem');
 const SoulboundPetSkinHandler = require('./handlers/SoulboundPetSkin');
 const PetNetworthHelper = require('./helpers/PetNetworthHelper');
+const { CUSTOM_PET_NAMES } = require('../constants/pets');
+const { titleCase } = require('../helper/functions');
 
 /**
  * Class for calculating the networth of a pet
@@ -83,6 +85,7 @@ class PetNetworthCalculator extends PetNetworthHelper {
             id: this.petData.type,
             customId: this.getPetId(prices, this.nonCosmetic),
             name: this.petName,
+            loreName: `&7[Lvl ${this.level.level}] ${this.getTierColor()} ${CUSTOM_PET_NAMES[this.petData.type] ?? titleCase(this.petData.type)}${this.petData.skin ? ' ✦' : ''}`,
             price: this.price + this.basePrice,
             basePrice: this.basePrice,
             calculation: this.calculation,

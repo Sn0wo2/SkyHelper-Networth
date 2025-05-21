@@ -1,4 +1,4 @@
-const { TIERS, SOULBOUND_PETS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS, CUSTOM_PET_NAMES } = require('../../constants/pets');
+const { TIERS, SOULBOUND_PETS, SPECIAL_LEVELS, RARITY_OFFSET, LEVELS, CUSTOM_PET_NAMES, TIERS_COLOR } = require('../../constants/pets');
 const { ValidationError } = require('../../helper/errors');
 const { titleCase } = require('../../helper/functions');
 
@@ -25,7 +25,6 @@ class PetNetworthHelper {
         this.petName = `[Lvl ${this.level.level}] ${titleCase(`${this.getTierBoostedTierName()} ${CUSTOM_PET_NAMES[this.petData.type] ?? titleCase(this.petData.type)}`)}${
             this.petData.skin ? ' ✦' : ''
         }`;
-
         // Initialize calculation properties
         this.calculation = [];
         this.basePrice = 0;
@@ -75,6 +74,14 @@ class PetNetworthHelper {
      */
     getTierBoostedTierName() {
         return TIERS[this.getTierBoostedTier()];
+    }
+
+    /**
+     * Gets the pet's tier color
+     * @returns {string} The pet's tier color
+     */
+    getTierColor() {
+        return TIERS_COLOR[this.getTierBoostedTierName()];
     }
 
     /**
