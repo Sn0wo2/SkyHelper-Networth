@@ -3,6 +3,7 @@ const { ValidationError } = require('../helper/errors');
 const { titleCase } = require('../helper/functions');
 const { getPrices } = require('../helper/prices');
 const networthManager = require('../managers/NetworthManager');
+const { TIERS_COLOR } = require('../constants/pets');
 
 /**
  * Base class for calculating the networth of a basic item like a sack item or essence
@@ -19,7 +20,7 @@ class BasicItemNetworthCalculator {
         this.amount = amount ?? 0;
         this.skyblockItem = getHypixelItemInformationFromId(this.id) ?? {};
         this.itemName = this.#getItemName();
-
+        this.loreName = this.#getTierColor() + this.itemName;
         this.#validate();
     }
 
@@ -39,6 +40,17 @@ class BasicItemNetworthCalculator {
         }
 
         return this.skyblockItem?.name || titleCase(this.id);
+    }
+
+    /**
+     * Gets the item's tier color
+     * @returns {string} The item's tier color
+     */
+    #getTierColor() {
+        if (this.skyblockItem.tier === undefined) {
+            return '';
+        }
+        return TIERS_COLOR[this.skyblockItem.tier];
     }
 
     /**
@@ -102,11 +114,15 @@ class BasicItemNetworthCalculator {
 
         return {
             name: this.itemName,
+            loreName: this.#getTierColor() + this.itemName,
             id: this.id,
             price: totalPrice,
             calculation: [],
             count: this.amount,
             soulbound: false,
+            petData: {
+                tier: this.skyblockItem.tier
+            },
         };
     }
 }
