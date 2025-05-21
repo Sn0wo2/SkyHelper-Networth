@@ -9,16 +9,16 @@ const RARITY_OFFSET = { COMMON: 0, UNCOMMON: 6, RARE: 11, EPIC: 16, LEGENDARY: 2
 const TIERS = ['COMMON', 'UNCOMMON', 'RARE', 'EPIC', 'LEGENDARY', 'MYTHIC', 'DIVINE', 'SPECIAL', 'VERY_SPECIAL', 'ULTIMATE'];
 
 const TIERS_COLOR = {
-    'COMMON': '&f',
-    'UNCOMMON': '&a',
-    'RARE': '&9',
-    'EPIC': '&5',
-    'LEGENDARY': '&6',
-    'MYTHIC': '&d',
-    'DIVINE': '&b',
-    'SPECIAL': '&a',
-    'VERY_SPECIAL': '&a',
-    'ULTIMATE': '&4',
+    COMMON: '&f',
+    UNCOMMON: '&a',
+    RARE: '&9',
+    EPIC: '&5',
+    LEGENDARY: '&6',
+    MYTHIC: '&d',
+    DIVINE: '&b',
+    SPECIAL: '&a',
+    VERY_SPECIAL: '&a',
+    ULTIMATE: '&4',
 };
 
 const LEVELS = [

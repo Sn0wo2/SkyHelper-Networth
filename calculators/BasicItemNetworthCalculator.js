@@ -121,7 +121,7 @@ class BasicItemNetworthCalculator {
             count: this.amount,
             soulbound: false,
             petData: {
-                tier: this.skyblockItem.tier
+                tier: this.skyblockItem.tier,
             },
         };
     }
