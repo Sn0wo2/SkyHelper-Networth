@@ -1,9 +1,10 @@
-﻿# SkyHelper-Networth
+# SkyHelper-Networth
 
 [![discord](https://img.shields.io/discord/720018827433345138?logo=discord)](https://discord.com/invite/fd4Be4W)
 [![license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![npm](https://img.shields.io/npm/v/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
 [![downloads](https://img.shields.io/npm/dm/skyhelper-networth)](https://npmjs.com/package/skyhelper-networth)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSn0wo2%2FSkyHelper-Networth.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FSn0wo2%2FSkyHelper-Networth?ref=badge_shield)
 
 [SkyHelper](https://skyhelper.altpapier.dev/)'s Networth Calculation as a Node.js module to calculate a player's SkyBlock networth by using their profile data provided by the [Hypixel API](https://api.hypixel.net/).
 
@@ -229,3 +230,7 @@ git clone https://github.com/Altpapier/SkyHelper-Networth.git
 npm install
 npm test
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FSn0wo2%2FSkyHelper-Networth.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FSn0wo2%2FSkyHelper-Networth?ref=badge_large)
